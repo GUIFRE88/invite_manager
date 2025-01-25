@@ -1,0 +1,32 @@
+<div style="width: 40%;" class="mx-auto">
+  <h1>Relate Invites to <%= @company.name %></h1>
+
+  <div>
+    <%= link_to "Back", companies_path, class: 'btn btn-secondary' %>
+  </div>
+
+  <%= form_with url: associate_invites_company_path(@company), method: :post do |f| %>
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>Select</th>
+          <th>Invite Name</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @invites.each do |invite| %>
+          <tr>
+            <td>
+              <%= check_box_tag "invite_ids[]", invite.id, @company.invites.include?(invite), class: "form-check-input" %>
+            </td>
+            <td><%= invite.name %></td>
+            <td><%= invite.created_at.strftime("%d/%m/%Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+</div>

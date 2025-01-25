@@ -23,4 +23,20 @@
     </div>
   </div>
 
+  </br>
+  <% if @company.present? && @company.invites.any? %>
+  <h2>Related Invites</h2>
+  <div class="list-group">
+    <% @company.invites.each do |invite| %>
+      <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <%= invite.name %>
+        <span class="badge bg-primary rounded-pill">
+          <%= invite.created_at.strftime("%d/%m/%Y") %>
+        </span>
+      </a>
+    <% end %>
+  </div>
+  <%end%>
+
+
 </div>

@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   resources :invites
-  resources :companies
   devise_for :administrators
 
-  # Rota para a listagem de administradores
   resources :administrators, only: [:index, :edit, :update, :destroy]
 
-  # Define a rota inicial
   root to: "administrators#index"
+
+  resources :companies do
+    member do
+      get :relate_invites
+      post :associate_invites
+    end
+  end
+
 end

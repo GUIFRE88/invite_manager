@@ -58,6 +58,31 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def relate_invites
+    @company = Company.find(params[:id])
+    @invites = Invite.all
+  end
+
+  def associate_invites
+    @company = Company.find(params[:id])
+    invite_ids = params[:invite_ids] || []
+
+    # Remover os convites que foram desmarcados
+    @company.invites.each do |invite|
+      unless invite_ids.include?(invite.id.to_s)
+        @company.invites.delete(invite)
+      end
+    end
+
+    # Adicionar os convites selecionados que ainda não estão associados
+    invite_ids.each do |invite_id|
+      invite = Invite.find(invite_id)
+      @company.invites << invite unless @company.invites.exists?(invite.id)
+    end
+
+    redirect_to company_path(@company), notice: "Invites successfully associated."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
