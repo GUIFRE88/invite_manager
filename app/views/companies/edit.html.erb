@@ -1,0 +1,15 @@
+<% content_for :title, "Editing company" %>
+
+<div style="width: 80%;" class="mx-auto">
+  <h1>Editing company</h1>
+
+  <div>
+    <%= link_to "Back to companies", companies_path, class: 'btn btn-info' %>
+  </div>
+
+  <%= render "form", company: @company %>
+
+  <br>
+
+
+</div>

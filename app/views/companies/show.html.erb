@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<div style="width: 80%;" class="mx-auto">
+
+  <h1><%= 'Show Companies Details' %></h1>
+
+  <div>
+    <%= link_to "Back to companies", companies_path, class: 'btn btn-info' %>
+  </div>
+
+  </br>
+
+  <%= render @company %>
+
+  </br>
+
+  <div class="row">
+    <div class="col-auto">
+      <%= link_to "Edit this company", edit_company_path(@company), class: 'btn btn-warning' %> 
+    </div>
+    <div class="col-auto">
+      <%= button_to "Destroy this company", @company, method: :delete, data: { confirm: 'Are you sure you want to delete this company?' }, class: 'btn btn-danger' %>
+    </div>
+  </div>
+
+</div>

@@ -5,7 +5,9 @@
     <tr>
       <th>ID</th>
       <th>Email</th>
+      <th>Nome</th>
       <th>Data de Criação</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +16,10 @@
         <td><%= admin.id %></td>
         <td><%= admin.email %></td>
         <td><%= admin.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <td>
+          <%= link_to 'Editar', edit_administrator_path(admin) %> |
+          <%= link_to 'Excluir', administrator_path(admin), method: :delete, data: { confirm: 'Tem certeza que deseja excluir este administrador?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
