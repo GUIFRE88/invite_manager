@@ -1,23 +1,32 @@
-<h1>Editar Administrador</h1>
+<div style="width: 40%;" class="mx-auto">
+  <h1>Editing Administrator </h1>
 
-<%= form_with(model: @administrator, local: true) do |form| %>
-  <% if @administrator.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@administrator.errors.count, "error") %> proibiu este administrador de ser salvo:</h2>
-      <ul>
-        <% @administrator.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div>
+    <%= link_to "Back", administrators_path, class: 'btn btn-secondary' %>
+  </div>
+
+  </br>
+  </br>
+
+  <%= form_with(model: @administrator, local: true) do |form| %>
+    <% if @administrator.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <h2><%= pluralize(@administrator.errors.count, "error") %> proibiu este administrador de ser salvo:</h2>
+        <ul>
+          <% @administrator.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :email, class: 'form-label' %>
+      <%= form.email_field :email, class: 'form-control' %>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+      <%= form.submit "Save", class: "btn btn-primary btn-md" %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Atualizar" %>
-  </div>
-<% end %>
+</div>

@@ -1,4 +1,5 @@
 class InvitesController < ApplicationController
+  before_action :authenticate_administrator!
   before_action :set_invite, only: %i[ show edit update destroy ]
 
   # GET /invites or /invites.json

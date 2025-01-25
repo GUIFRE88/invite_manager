@@ -18,7 +18,6 @@ class AdministratorsController < ApplicationController
   end
 
   def destroy
-    puts 'Caiu na rotaaaaaaaaaaaaaaaaaaaaaaaaaaa'
     @administrator.destroy
     redirect_to new_administrator_session_path, notice: 'Administrador excluído com sucesso.'
   end

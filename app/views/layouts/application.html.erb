@@ -33,11 +33,12 @@
 
   <body>
     <% if administrator_signed_in? %>
-      <p>Olá, <%= current_administrator.email %>!</p>
-      <%= link_to "Logout", destroy_administrator_session_path, method: :delete, data: { confirm: 'Tem certeza que deseja sair?'} %>
+      <div style="width: 80%;" class=" d-flex mx-auto justify-content-end mt-2">
 
-    <% else %>
-      <%= link_to "Login", new_administrator_session_path %>
+        <%= button_to "Logout", destroy_administrator_session_path, method: :delete, 
+              data: { confirm: 'Are you sure you want to log out?' }, 
+              class: 'btn btn-danger btn-md' %>
+      </div>
     <% end %>
     <%= yield %>
   </body>
