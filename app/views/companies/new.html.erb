@@ -1,11 +1,15 @@
-<% content_for :title, "New company" %>
+<% content_for :title, "New Company" %>
 
-<h1>New company</h1>
+<div style="width: 80%;" class="mx-auto">
+  <h1>New Company</h1>
 
-<%= render "form", company: @company %>
+  <div>
+    <%= link_to "Back", companies_path, class: 'btn btn-secondary' %>
+  </div>
 
-<br>
+  <%= render "form", company: @company %>
 
-<div>
-  <%= link_to "Back to companies", companies_path %>
+  <br>
+
+
 </div>

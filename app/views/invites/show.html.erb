@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<div style="width: 80%;" class="mx-auto">
+
+  <h1><%= 'Invite Details' %></h1>
+
+  <div>
+    <%= link_to "Back", invites_path, class: 'btn btn-secondary' %>
+  </div>
+
+  </br>
+
+  <p><strong>Name:</strong> <%= @invite.name %></p>
+
+  </br>
+
+  <div class="row">
+    <div class="col-auto">
+      <%= link_to "Edit", edit_invite_path(@invite), class: 'btn btn-warning' %> 
+    </div>
+    <div class="col-auto">
+      <%= button_to "Delete", @invite, method: :delete, data: { confirm: 'Are you sure you want to delete this invite?' }, class: 'btn btn-danger' %>
+    </div>
+  </div>
+
+</div>

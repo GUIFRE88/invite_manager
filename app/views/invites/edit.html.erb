@@ -1,0 +1,17 @@
+<% content_for :title, "Editing invite" %>
+
+</br>
+<div style="width: 80%;" class="mx-auto">
+  <h1>Editing invite</h1>
+
+  <div>
+    <%= link_to "Back", invites_path, class: 'btn btn-secondary' %>
+  </div>
+
+  </br>
+  </br>
+  <%= render "form", invite: @invite %>
+
+  <br>
+
+</div>

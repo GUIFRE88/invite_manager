@@ -4,25 +4,29 @@
   <h1>Companies</h1>
 
   <%= link_to "New company", new_company_path, class: 'btn btn-success' %>
-  <%= link_to "Back to Administrators", administrators_path, class: 'btn btn-info' %>
+  <%= link_to "Back to Administrators", administrators_path, class: 'btn btn-secondary' %>
 
-  <!-- Tabela de Companies -->
   <table class="table table-striped">
     <thead>
       <tr>
+        <th>ID</th>
         <th>Name</th>
+        <th>Date Created</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <% @companies.each do |company| %>
         <tr>
-          <td><%= company.name %></td> <!-- Exibe o nome da empresa -->
+          <td><%= company.id %></td>
+          <td><%= company.name %></td>
+          <td><%= company.created_at.strftime("%d/%m/%Y %H:%M") %></td>
           <td>
-            <!-- Links para Show, Edit e Delete -->
-            <%= link_to 'Show', company, class: 'btn btn-info btn-sm' %> 
-            <%= link_to 'Edit', edit_company_path(company), class: 'btn btn-warning btn-sm' %> 
-            <%= link_to 'Delete', company, method: :delete, data: { confirm: 'Are you sure you want to delete this company?' }, class: 'btn btn-danger btn-sm' %> 
+            <div class="d-flex gap-2">
+              <%= link_to 'Show', company, class: 'btn btn-info btn-sm' %> 
+              <%= link_to 'Edit', edit_company_path(company), class: 'btn btn-warning btn-sm' %> 
+              <%= button_to "Delete", company, method: :delete, data: { confirm: 'Are you sure you want to delete this company?' }, class: 'btn btn-danger btn-sm' %>
+            </div>
           </td>
         </tr>
       <% end %>
