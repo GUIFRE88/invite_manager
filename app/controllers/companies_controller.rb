@@ -60,9 +60,16 @@ class CompaniesController < ApplicationController
 
   def relate_invites
     @company = Company.find(params[:id])
-    @invites = Invite.all
+    
+    related_invites = Invite.joins(:companies)
+                            .where(companies: { id: @company.id })
+    
+    new_invites = Invite.left_joins(:companies)
+                        .where(companies: { id: nil })
+    
+    @invites = (related_invites.to_a + new_invites.to_a).uniq
   end
-
+  
   def associate_invites
     @company = Company.find(params[:id])
     invite_ids = params[:invite_ids] || []
