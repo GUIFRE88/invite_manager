@@ -36,7 +36,9 @@ class InviteRepository
   end
 
   def create(params)
-    Invite.new(params)
+    invite = Invite.new(params)
+    invite.save
+    invite
   end
 
   def delete(admin_invite_id)

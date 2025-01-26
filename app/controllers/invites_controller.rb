@@ -17,15 +17,15 @@ class InvitesController < ApplicationController
   end
 
   def create
-    invite = CreateInvite.new(invite_params).call
+    @invite = CreateInvite.new(invite_params).call
 
     respond_to do |format|
-      if invite.save
-        format.html { redirect_to invite, notice: "Invite was successfully created." }
-        format.json { render :show, status: :created, location: invite }
+      if @invite.persisted?
+        format.html { redirect_to @invite, notice: "Invite was successfully created." }
+        format.json { render :show, status: :created, location: @invite }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: invite.errors, status: :unprocessable_entity }
+        format.json { render json: @invite.errors, status: :unprocessable_entity }
       end
     end
   end

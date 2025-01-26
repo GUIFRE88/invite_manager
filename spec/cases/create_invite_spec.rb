@@ -12,7 +12,7 @@ RSpec.describe CreateInvite, type: :service do
 
         expect(invite).to be_a(Invite)
         expect(invite.name).to eq("Special Invitation")
-        expect(invite).not_to be_persisted
+        expect(invite).to be_persisted
       end
     end
 
