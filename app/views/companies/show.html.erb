@@ -25,18 +25,44 @@
 
   </br>
   <% if @company.present? && @company.invites.any? %>
-  <h2>Related Invites</h2>
-  <div class="list-group">
-    <% @company.invites.each do |invite| %>
-      <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-        <%= invite.name %>
-        <span class="badge bg-primary rounded-pill">
-          <%= invite.created_at.strftime("%d/%m/%Y") %>
-        </span>
-      </a>
-    <% end %>
-  </div>
-  <%end%>
+    <h2>Related Invites</h2>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Invite Name</th>
+          <th>Created Date</th>
+          <th>Completion Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @company.invites.each_with_index do |invite, index| %>
+          <tr>
+            <!-- Índice -->
+            <td><%= index + 1 %></td>
+
+            <!-- Nome do convite -->
+            <td><%= invite.name %></td>
+
+            <!-- Data de criação -->
+            <td><%= invite.created_at.strftime("%d/%m/%Y") %></td>
+
+            <!-- Data de conclusão -->
+            <td>
+              <% if invite.date_completion.present? %>
+                <%= invite.date_completion.strftime("%d/%m/%Y") %>
+              <% else %>
+                <span class="text-muted">No Completion Date</span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No invites available for this company.</p>
+  <% end %>
+
 
 
 </div>

@@ -1,31 +1,28 @@
+# app/controllers/companies_controller.rb
+
 class CompaniesController < ApplicationController
   before_action :authenticate_administrator!
-  before_action :set_company, only: %i[ show edit update destroy ]
+  before_action :set_company, only: %i[show edit update destroy relate_invites associate_invites]
 
-  # GET /companies or /companies.json
   def index
     @companies = Company.all
   end
 
-  # GET /companies/1 or /companies/1.json
   def show
   end
 
-  # GET /companies/new
   def new
     @company = Company.new
   end
 
-  # GET /companies/1/edit
   def edit
   end
 
-  # POST /companies or /companies.json
   def create
-    @company = Company.new(company_params)
+    @company = CreateCompany.new(company_params).call
 
     respond_to do |format|
-      if @company.save
+      if @company
         format.html { redirect_to @company, notice: "Company was successfully created." }
         format.json { render :show, status: :created, location: @company }
       else
@@ -35,10 +32,11 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /companies/1 or /companies/1.json
   def update
+    @company = UpdateCompany.new(@company, company_params).call
+
     respond_to do |format|
-      if @company.update(company_params)
+      if @company
         format.html { redirect_to @company, notice: "Company was successfully updated." }
         format.json { render :show, status: :ok, location: @company }
       else
@@ -48,9 +46,8 @@ class CompaniesController < ApplicationController
     end
   end
 
-  # DELETE /companies/1 or /companies/1.json
   def destroy
-    @company.destroy!
+    DestroyCompany.new(@company).call
 
     respond_to do |format|
       format.html { redirect_to companies_path, status: :see_other, notice: "Company was successfully destroyed." }
@@ -59,45 +56,22 @@ class CompaniesController < ApplicationController
   end
 
   def relate_invites
-    @company = Company.find(params[:id])
-    
-    related_invites = Invite.joins(:companies)
-                            .where(companies: { id: @company.id })
-    
-    new_invites = Invite.left_joins(:companies)
-                        .where(companies: { id: nil })
-    
-    @invites = (related_invites.to_a + new_invites.to_a).uniq
+    @invites = RelateInvitesForCompany.new(@company).call
   end
-  
+
   def associate_invites
-    @company = Company.find(params[:id])
     invite_ids = params[:invite_ids] || []
-
-    # Remover os convites que foram desmarcados
-    @company.invites.each do |invite|
-      unless invite_ids.include?(invite.id.to_s)
-        @company.invites.delete(invite)
-      end
-    end
-
-    # Adicionar os convites selecionados que ainda não estão associados
-    invite_ids.each do |invite_id|
-      invite = Invite.find(invite_id)
-      @company.invites << invite unless @company.invites.exists?(invite.id)
-    end
-
+    AssociateInvitesForCompany.new(@company, invite_ids).call
     redirect_to company_path(@company), notice: "Invites successfully associated."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_company
-      @company = Company.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def company_params
-      params.require(:company).permit(:name)
-    end
+  def set_company
+    @company = Company.find(params[:id])
+  end
+
+  def company_params
+    params.require(:company).permit(:name)
+  end
 end
