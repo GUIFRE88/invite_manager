@@ -58,10 +58,28 @@ class AdministratorsController < ApplicationController
 
   def invites
     @administrator = Administrator.find_by_id(params[:administrator_id])
-  
+
     @administrator_invites = AdministratorCompanyInvite
-                               .includes(:invite, :company)
-                               .where(administrator_id: @administrator.id)
+                                 .includes(:invite, :company)
+                                 .where(administrator_id: @administrator.id)
+  
+    if params[:invite_name].present?
+      @administrator_invites = @administrator_invites.joins(:invite)
+                                                  .where("invites.name LIKE ?", "%#{params[:invite_name]}%")
+    end
+  
+     if params[:company_name].present?
+      @administrator_invites = @administrator_invites.joins(:company)
+                                                  .where("companies.name LIKE ?", "%#{params[:company_name]}%")
+    end
+
+    if params[:start_date].present? && params[:end_date].present?
+      @administrator_invites = @administrator_invites.where("invites.date_completion BETWEEN ? AND ?", params[:start_date], params[:end_date])
+    elsif params[:start_date].present?
+      @administrator_invites = @administrator_invites.where("invites.date_completion >= ?", params[:start_date])
+    elsif params[:end_date].present?
+      @administrator_invites = @administrator_invites.where("invites.date_completion <= ?", params[:end_date])
+    end
   end
   
 
