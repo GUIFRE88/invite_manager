@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :invite do
     name { "Test Invite" }
-    date_completion { Date.today }
+    created_at { Time.now }
+    date_completion { Time.now + 7.days }
   end
 end

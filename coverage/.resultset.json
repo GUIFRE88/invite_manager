@@ -4,12 +4,13 @@
       "/app/app/models/administrator.rb": {
         "lines": [
           1,
+          1,
           null,
           null,
           1,
+          1,
+          1,
           null,
-          1,
-          1,
           1,
           null
         ]
@@ -48,6 +49,16 @@
           null
         ]
       },
+      "/app/app/models/company_invite.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/app/app/models/company.rb": {
         "lines": [
           1,
@@ -55,6 +66,8 @@
           1,
           1,
           1,
+          1,
+          null,
           1,
           null
         ]
@@ -66,6 +79,8 @@
           1,
           1,
           1,
+          1,
+          null,
           1,
           null
         ]
@@ -649,19 +664,8 @@
           0
         ],
         "branches": {}
-      },
-      "/app/app/models/company_invite.rb": {
-        "lines": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "branches": {}
       }
     },
-    "timestamp": 1737908715
+    "timestamp": 1737910367
   }
 }
