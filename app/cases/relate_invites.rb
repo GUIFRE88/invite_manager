@@ -1,15 +1,10 @@
 class RelateInvites
   def initialize(administrator)
     @administrator = administrator
+    @repository = InviteRepository.new()
   end
 
   def call
-    CompanyInvite
-      .includes(:company, :invite)
-      .where.not(
-        id: AdministratorCompanyInvite
-              .where(administrator_id: @administrator.id)
-              .select(:invite_id)
-      )
+    @repository.relate_invites(@administrator)
   end
 end

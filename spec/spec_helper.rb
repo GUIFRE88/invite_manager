@@ -17,4 +17,5 @@ SimpleCov.start do
   add_group 'Models', 'app/models'
   add_group 'Controllers', 'app/controllers'
   add_group 'Cases', 'app/cases'
+  add_group 'Repositories', 'app/repositories'
 end
