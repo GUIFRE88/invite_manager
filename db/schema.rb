@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_25_192413) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_25_202405) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "administrator_company_invites", force: :cascade do |t|
+    t.bigint "administrator_id", null: false
+    t.bigint "company_id", null: false
+    t.bigint "invite_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["administrator_id"], name: "index_administrator_company_invites_on_administrator_id"
+    t.index ["company_id"], name: "index_administrator_company_invites_on_company_id"
+    t.index ["invite_id"], name: "index_administrator_company_invites_on_invite_id"
+  end
 
   create_table "administrators", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -47,6 +58,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_25_192413) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "administrator_company_invites", "administrators"
+  add_foreign_key "administrator_company_invites", "companies"
+  add_foreign_key "administrator_company_invites", "invites"
   add_foreign_key "company_invites", "companies"
   add_foreign_key "company_invites", "invites"
 end

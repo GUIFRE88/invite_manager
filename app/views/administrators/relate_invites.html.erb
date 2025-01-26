@@ -1,0 +1,30 @@
+<div style="width: 40%;" class="mx-auto">
+  <%= form_with url: associate_invites_administrator_path(@administrator), method: :post do |f| %>
+    <table class="table table-bordered mt-3">
+      <thead>
+        <tr>
+          <th>Select</th>
+          <th>Invite Name</th>
+          <th>Company</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @company_invites.each do |company_invite| %>
+          <tr>
+            <td>
+              <%= check_box_tag "invites[#{company_invite.invite.id}][selected]", true, false, class: "form-check-input" %>
+              <%= hidden_field_tag "invites[#{company_invite.invite.id}][company_id]", company_invite.company.id %>
+            </td>
+            <td><%= company_invite.invite.name %></td>
+            <td><%= company_invite.company.name %></td>
+            <td><%= company_invite.invite.created_at.strftime("%d/%m/%Y") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= f.submit "Save", class: "btn btn-primary" %>
+    <%= link_to "Back", administrators_path, class: 'btn btn-secondary' %>
+  <% end %>
+</div>

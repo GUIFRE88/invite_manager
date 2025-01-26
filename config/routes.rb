@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   resources :invites
   devise_for :administrators
 
-  resources :administrators, only: [:index, :edit, :update, :destroy]
+  resources :administrators, only: [:index, :edit, :update, :destroy] do
+    get 'relate_invites', on: :member
+    post 'associate_invites', on: :member
+  end
 
   root to: "administrators#index"
 
