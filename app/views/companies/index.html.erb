@@ -20,7 +20,7 @@
         <tr>
           <td><%= company.id %></td>
           <td><%= company.name %></td>
-          <td><%= company.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+          <td><%= company.created_at.strftime("%d/%m/%Y") %></td>
           <td>
             <div class="d-flex gap-2">
               <%= link_to 'Show', company, class: 'btn btn-info btn-sm' %> 
