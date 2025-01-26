@@ -53,9 +53,15 @@ class AdministratorsController < ApplicationController
         end
       end
     end
-  
-    # Redireciona para a página do administrador com uma mensagem de sucesso
     redirect_to administrators_path, notice: "Invitations associated successfully."
+  end
+
+  def invites
+    @administrator = Administrator.find_by_id(params[:administrator_id])
+  
+    @administrator_invites = AdministratorCompanyInvite
+                               .includes(:invite, :company)
+                               .where(administrator_id: @administrator.id)
   end
   
 

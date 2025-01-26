@@ -1,0 +1,34 @@
+<div style="width: 80%;" class="mx-auto">
+  <% content_for :title, "Invites of Administrator ##{@administrator.id}" %>
+  <h1>Invites for <%= @administrator.email %></h1>
+
+  <%= link_to "Back", administrators_path, class: "btn btn-secondary mb-3" %>
+
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th>Invite ID</th>
+        <th>Invite Name</th>
+        <th>Company Name</th>
+        <th>Date Associated</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @administrator_invites.each do |admin_invite| %>
+        <tr>
+          <td><%= admin_invite.invite.id %></td>
+          <td><%= admin_invite.invite.name %></td>
+          <td><%= admin_invite.company.name %></td>
+          <td><%= admin_invite.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+          <td>
+            <%= button_to "Delete", administrator_company_invite_path(admin_invite), 
+                method: :delete, 
+                data: { confirm: "Are you sure you want to delete this invite?" }, 
+                class: "btn btn-danger btn-sm" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

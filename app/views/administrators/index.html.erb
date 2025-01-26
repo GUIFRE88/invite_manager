@@ -26,7 +26,7 @@
               <%= link_to 'Edit', edit_administrator_path(admin), class: 'btn btn-warning btn-sm' %>
               <%= button_to 'Delete', administrator_path(admin), method: :delete, data: { confirm: 'Tem certeza que deseja excluir este administrador?' }, class: 'btn btn-danger btn-sm' %>
               <%= link_to 'Relate invitations', relate_invites_administrator_path(admin), class: 'btn btn-primary btn-sm' %>
-              <%= link_to 'Invites', edit_administrator_path(admin), class: 'btn btn-success btn-sm' %>
+              <%= link_to 'Invites', administrator_invites_path(admin), class: 'btn btn-success btn-sm' %>
             </div>
           </td>
         </tr>
