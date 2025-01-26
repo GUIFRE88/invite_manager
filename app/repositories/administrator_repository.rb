@@ -15,8 +15,6 @@ class AdministratorRepository
     @administrator.email = params[:email]
     if @administrator.save(validate: false)
       return { success: true, administrator: @administrator }
-    else
-      return { success: false, errors: @administrator.errors }
     end
   end
 
