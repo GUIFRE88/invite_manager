@@ -10,6 +10,7 @@
         <th>Invite ID</th>
         <th>Invite Name</th>
         <th>Company Name</th>
+        <th>Date Completion</th>
         <th>Date Associated</th>
         <th>Actions</th>
       </tr>
@@ -20,7 +21,8 @@
           <td><%= admin_invite.invite.id %></td>
           <td><%= admin_invite.invite.name %></td>
           <td><%= admin_invite.company.name %></td>
-          <td><%= admin_invite.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+          <td><%= admin_invite.invite.date_completion&.strftime("%d/%m/%Y") %></td>
+          <td><%= admin_invite.created_at&.strftime("%d/%m/%Y") %></td>
           <td>
             <%= button_to "Delete", administrator_company_invite_path(admin_invite), 
                 method: :delete, 

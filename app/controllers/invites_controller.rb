@@ -66,6 +66,6 @@ class InvitesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def invite_params
-      params.require(:invite).permit(:name)
+      params.require(:invite).permit(:name, :date_completion)
     end
 end

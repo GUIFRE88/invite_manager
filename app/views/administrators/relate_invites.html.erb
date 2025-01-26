@@ -6,6 +6,7 @@
           <th>Select</th>
           <th>Invite Name</th>
           <th>Company</th>
+          <th>Date Completion</th>
           <th>Created At</th>
         </tr>
       </thead>
@@ -18,6 +19,7 @@
             </td>
             <td><%= company_invite.invite.name %></td>
             <td><%= company_invite.company.name %></td>
+            <td><%= company_invite.invite.date_completion&.strftime("%d/%m/%Y") %></td>
             <td><%= company_invite.invite.created_at.strftime("%d/%m/%Y") %></td>
           </tr>
         <% end %>

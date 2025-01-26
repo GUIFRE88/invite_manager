@@ -11,6 +11,7 @@
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Date Completion</th>
         <th>Date Created</th>
         <th>Actions</th>
       </tr>
@@ -20,7 +21,8 @@
         <tr>
           <td><%= invite.id %></td>
           <td><%= invite.name %></td>
-          <td><%= invite.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+          <td><%= invite.date_completion&.strftime("%d/%m/%Y") %></td>
+          <td><%= invite.created_at.strftime("%d/%m/%Y") %></td>
           <td>
             <div class="d-flex gap-2">
               <%= link_to 'Show', invite, class: 'btn btn-info btn-sm' %> 

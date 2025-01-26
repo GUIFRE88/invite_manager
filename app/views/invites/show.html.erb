@@ -14,6 +14,12 @@
 
   </br>
 
+  </br>
+
+  <p><strong>Date Completion:</strong> <%= @invite.date_completion.strftime("%d/%m/%Y") %></p>
+
+  </br>
+
   <div class="row">
     <div class="col-auto">
       <%= link_to "Edit", edit_invite_path(@invite), class: 'btn btn-warning' %> 
