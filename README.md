@@ -180,7 +180,7 @@ Todo projeto oferece desafios e melhorias, creio que as melhorias seriam:
 * Outro ponto seria a melhoria de mensagens de requisições realizadas ou que apresentaram falha.
 * Adicição de Begin e Rescue para tratar excessões e erros durante o processo de gravação no banco.
 * Criar mais testes com Rspec, mesmo que a % esteja próximo a 100%, creio que seria possível incluir mais alguns testes para melhorar não a cobertura de código apenas, mas todas as funcionalidades e possíbilidades.
-
+* Outro ponto, eu gostaria de ter aplicado a tradução para o Português/BR, optei por deixar em inglês nesse primeiro momento. 
 
 <br>
 
