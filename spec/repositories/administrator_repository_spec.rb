@@ -15,7 +15,7 @@ RSpec.describe AdministratorRepository, type: :model do
 
     it 'returns all administrators' do
       repository = AdministratorRepository.new
-      administrators = repository.list
+      administrators = repository.index
 
       expect(administrators).to include(administrator, other_administrator)
       expect(administrators.count).to eq(2)

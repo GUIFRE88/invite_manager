@@ -5,6 +5,6 @@ class ListInvites
   end
 
   def call
-    @repository.list_invites
+    @repository.index
   end
 end

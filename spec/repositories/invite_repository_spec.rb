@@ -32,7 +32,7 @@ RSpec.describe InviteRepository, type: :repository do
     let!(:invite2) { create(:invite) }
 
     it 'returns all invites' do
-      invites = repository.list_invites
+      invites = repository.index
       expect(invites).to include(invite1, invite2)
     end
   end

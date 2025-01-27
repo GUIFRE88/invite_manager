@@ -27,7 +27,7 @@ class InviteRepository
     (related_invites.to_a + new_invites.to_a).uniq
   end
 
-  def list_invites
+  def index
     Invite.all
   end
 

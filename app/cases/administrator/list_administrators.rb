@@ -4,6 +4,6 @@ class ListAdministrators
   end
 
   def call
-    @repository.list
+    @repository.index
   end
 end

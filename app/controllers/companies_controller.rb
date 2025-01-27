@@ -1,11 +1,9 @@
-# app/controllers/companies_controller.rb
-
 class CompaniesController < ApplicationController
   before_action :authenticate_administrator!
   before_action :set_company, only: %i[show edit update destroy relate_invites associate_invites]
 
   def index
-    @companies = Company.all
+    @companies = ListCompanies.new().call
   end
 
   def show

@@ -40,6 +40,12 @@ module App
     config.generators.system_tests = nil
 
     config.autoload_paths += %W(#{config.root}/app/repositories)
-
+    config.autoload_paths += %W(#{config.root}/app/cases/invite)
+    config.autoload_paths += %W(#{config.root}/app/cases/company)
+    config.autoload_paths += %W(#{config.root}/app/cases/associate)
+    config.autoload_paths += %W(#{config.root}/app/cases/administrator)
+    config.autoload_paths += %W(#{config.root}/app/cases/filter)
+    config.autoload_paths += %W(#{config.root}/app/cases/relate)
+    
   end
 end

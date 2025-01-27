@@ -3,6 +3,10 @@ class CompanyRepository
     @company = company
   end
 
+  def index
+    Company.all
+  end
+
   def create!(company_params)
     company = Company.new(company_params)
     company.save

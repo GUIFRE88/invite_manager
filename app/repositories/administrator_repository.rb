@@ -7,7 +7,7 @@ class AdministratorRepository
     @administrator.destroy
   end
 
-  def list
+  def index
     Administrator.all
   end
 

@@ -40,7 +40,7 @@
           null
         ]
       },
-      "/app/app/cases/associate_invites_for_company.rb": {
+      "/app/app/cases/associate/associate_invites_for_company.rb": {
         "lines": [
           1,
           1,
@@ -55,7 +55,7 @@
           null
         ]
       },
-      "/app/app/cases/associate_invites.rb": {
+      "/app/app/cases/associate/associate_invites.rb": {
         "lines": [
           1,
           1,
@@ -72,7 +72,7 @@
           null
         ]
       },
-      "/app/app/cases/create_company.rb": {
+      "/app/app/cases/company/create_company.rb": {
         "lines": [
           1,
           1,
@@ -86,7 +86,7 @@
           null
         ]
       },
-      "/app/app/cases/create_invite.rb": {
+      "/app/app/cases/invite/create_invite.rb": {
         "lines": [
           1,
           1,
@@ -100,7 +100,7 @@
           null
         ]
       },
-      "/app/app/cases/delete_invite.rb": {
+      "/app/app/cases/invite/delete_invite.rb": {
         "lines": [
           1,
           1,
@@ -114,7 +114,7 @@
           null
         ]
       },
-      "/app/app/cases/destroy_administrator.rb": {
+      "/app/app/cases/administrator/destroy_administrator.rb": {
         "lines": [
           1,
           1,
@@ -132,7 +132,7 @@
           null
         ]
       },
-      "/app/app/cases/destroy_company.rb": {
+      "/app/app/cases/company/destroy_company.rb": {
         "lines": [
           1,
           1,
@@ -146,7 +146,7 @@
           null
         ]
       },
-      "/app/app/cases/destroy_invite.rb": {
+      "/app/app/cases/invite/destroy_invite.rb": {
         "lines": [
           1,
           1,
@@ -160,7 +160,7 @@
           null
         ]
       },
-      "/app/app/cases/filter_administrator_invites.rb": {
+      "/app/app/cases/filter/filter_administrator_invites.rb": {
         "lines": [
           1,
           1,
@@ -175,7 +175,7 @@
           null
         ]
       },
-      "/app/app/cases/filter_invites.rb": {
+      "/app/app/cases/filter/filter_invites.rb": {
         "lines": [
           1,
           1,
@@ -217,7 +217,7 @@
           null
         ]
       },
-      "/app/app/cases/list_administrators.rb": {
+      "/app/app/cases/administrator/list_administrators.rb": {
         "lines": [
           1,
           1,
@@ -230,7 +230,7 @@
           null
         ]
       },
-      "/app/app/cases/list_invites.rb": {
+      "/app/app/cases/invite/list_invites.rb": {
         "lines": [
           1,
           1,
@@ -244,7 +244,7 @@
           null
         ]
       },
-      "/app/app/cases/relate_invites_for_company.rb": {
+      "/app/app/cases/relate/relate_invites_for_company.rb": {
         "lines": [
           1,
           1,
@@ -258,7 +258,7 @@
           null
         ]
       },
-      "/app/app/cases/relate_invites.rb": {
+      "/app/app/cases/relate/relate_invites.rb": {
         "lines": [
           1,
           1,
@@ -272,7 +272,7 @@
           null
         ]
       },
-      "/app/app/cases/update_administrator.rb": {
+      "/app/app/cases/administrator/update_administrator.rb": {
         "lines": [
           1,
           1,
@@ -287,7 +287,7 @@
           null
         ]
       },
-      "/app/app/cases/update_company.rb": {
+      "/app/app/cases/company/update_company.rb": {
         "lines": [
           1,
           1,
@@ -302,7 +302,7 @@
           null
         ]
       },
-      "/app/app/cases/update_invite.rb": {
+      "/app/app/cases/invite/update_invite.rb": {
         "lines": [
           1,
           1,
@@ -408,8 +408,6 @@
       },
       "/app/app/controllers/companies_controller.rb": {
         "lines": [
-          null,
-          null,
           1,
           1,
           1,
@@ -632,7 +630,11 @@
         "lines": [
           1,
           1,
-          16,
+          17,
+          null,
+          null,
+          1,
+          1,
           null,
           null,
           1,
@@ -743,8 +745,21 @@
           null,
           null
         ]
+      },
+      "/app/app/cases/company/list_companies.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1737935960
+    "timestamp": 1737939442
   }
 }
