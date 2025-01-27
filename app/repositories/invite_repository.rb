@@ -8,13 +8,15 @@ class InviteRepository
   end
 
   def relate_invites(administrator)
+    subquery = AdministratorCompanyInvite
+    .where('administrator_company_invites.administrator_id = ?', administrator.id)
+    .where('administrator_company_invites.company_id = company_invites.company_id')
+    .where('administrator_company_invites.invite_id = company_invites.invite_id')
+
     CompanyInvite
     .includes(:company, :invite)
-    .where.not(
-      id: AdministratorCompanyInvite
-            .where(administrator_id: administrator.id)
-            .select(:invite_id)
-    )
+    .where.not(Arel.sql("EXISTS (#{subquery.to_sql})"))
+    .order(:id)
   end
 
   def relate_invites_for_company(company)
@@ -24,7 +26,7 @@ class InviteRepository
     new_invites = Invite.left_joins(:companies)
     .where(companies: { id: nil })
 
-    (related_invites.to_a + new_invites.to_a).uniq
+    (related_invites.to_a + new_invites.to_a).uniq.sort_by(&:id)
   end
 
   def index
