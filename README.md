@@ -94,6 +94,21 @@ Obs. Caso um convite seja relacionado a um Administrador ele não ficará mais v
 
 <br>
 
+#  💻 Rela de filtros de convites
+
+<br>
+
+Na listagem de administradores, possuímos o botão de "Invites" que leva a tela de convites relacionados.
+  * Nessa tela é possível aplicar filtros para selecionar os convites desejados. 
+
+<br>
+
+![alt text](https://github.com/GUIFRE88/invite_manager/blob/main/prints/filters.png)
+
+
+
+<br>
+
 #  💻 Listagem de Empresas
 
 <br>
