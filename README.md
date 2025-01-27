@@ -40,8 +40,10 @@ Obs. Demais funcionalidades verificar o `Makefile`
 #  💻 Tela de Login
 
 <br>
+
 Foi criada a tela de login, possibilitando informar o e-mail e senha para realizar o login na aplicação
   * Todas os acessos as demais rotas da aplicação são acessadas apenas após o login.
+
 <br>
 
 ![alt text](https://github.com/GUIFRE88/invite_manager/blob/main/prints/login.png)
@@ -51,8 +53,10 @@ Foi criada a tela de login, possibilitando informar o e-mail e senha para realiz
 #  💻 Tela de Cadastro
 
 <br>
+
 Foi criada a tela de cadastro para que seja criado o Administrado.
   * A criação de novos administrados para a aplicação, será feita nessa tela. 
+
 <br>
 
 ![alt text](https://github.com/GUIFRE88/invite_manager/blob/main/prints/signup.png)
@@ -62,15 +66,17 @@ Foi criada a tela de cadastro para que seja criado o Administrado.
 #  💻 Listagem de Administradores
 
 <br>
+
 Possuímos a listagem de todos os administradores.
   * Será possivel editar, excluir, relacionar convites e visualizar os convites relacionados ao administrador.
+
 <br>
 
 ![alt text](https://github.com/GUIFRE88/invite_manager/blob/main/prints/listadm.png)
 
 <br>
 
-## Convites relacionados ao Administrador
+### Convites relacionados ao Administrador
 
 <br>
 
@@ -78,7 +84,7 @@ Possuímos a listagem de todos os administradores.
 
 <br>
 
-## Tela para relacionar convites ao Administrador
+### Tela para relacionar convites ao Administrador
 
 <br>
 
@@ -91,8 +97,10 @@ Obs. Caso um convite seja relacionado a um Administrador ele não ficará mais v
 #  💻 Listagem de Empresas
 
 <br>
+
 Possuímos a listagem de todas as empresa.
   * Será possivel editar, criar, excluir, visualizar e relacionar convites para uma determinada empresa.
+
 <br>
 
 ![alt text](https://github.com/GUIFRE88/invite_manager/blob/main/prints/companies.png)
@@ -103,10 +111,12 @@ Possuímos a listagem de todas as empresa.
 #  💻 Relacionar convites a uma empresa
 
 <br>
+
 Nessa tela será possível relacionar convites ao uma empresa.
   * Após a seleção, ficará marcado os convites relacionados.
   * Caso seja desmarcado, o mesmo quebrará a relação com a empresa.
   * Apenas convites relacionados a uma empresa poderão ser atrelados um Administrador. 
+
 <br>
 
 ![alt text](https://github.com/GUIFRE88/invite_manager/blob/main/prints/relatives-invites.png)
@@ -125,6 +135,19 @@ Ao ir em "Show" e verificar os dados da empresa, também será possível verific
 <br>
 
 
+#  💻 Listagem de convites
+
+<br>
+
+Possuímos uma tela para cadastro dos convites.
+   * Nessa tela temos a opção de criar, editar, visualizar e excluir um convite.  
+
+<br>
+
+![alt text](https://github.com/GUIFRE88/invite_manager/blob/main/prints/list-invite.png)
+
+<br>
+
 
 #  💻 Testes da aplicação com Rspec
 <br>
@@ -142,28 +165,23 @@ Possuíndo um total de 99,41% de cobertura total de testes.
 
 <br>
 
+* Para rodar os testes funcionais podemos rodar: `make test` em outra aba do terminal.
+
+<br>
+
 ---
-
-# 💻 Rspec
-Implementado testes com Rspec em cada projeto individualmente, por favor verifique a pasta /spec de cada projeto.
-
 
 <br>
 
 #  💻 Melhorias no projeto
 
 Todo projeto oferece desafios e melhorias, creio que as melhorias seriam:
+* Gostaria de ter melhoria do front-end da aplicação, talvez fazendo only API a parte do back-end ruby e no front-end utilizardo React para um visual mais aprimorado.
+* Outro ponto seria a melhoria de mensagens de requisições realizadas ou que apresentaram falha.
+* Adicição de Begin e Rescue para tratar excessões e erros durante o processo de gravação no banco.
+* Criar mais testes com Rspec, mesmo que a % esteja próximo a 100%, creio que seria possível incluir mais alguns testes para melhorar não a cobertura de código apenas, mas todas as funcionalidades e possíbilidades.
 
 
 <br>
-
-# 💻 Contribuição
-Sinta-se à vontade para contribuir com melhorias ou correções! Para isso, faça um fork do repositório, crie uma branch com suas alterações e envie um pull request.
-
-<br>
-
-# 💻 Licença
-Este projeto está licenciado sob a MIT License.
-
 
 ----
