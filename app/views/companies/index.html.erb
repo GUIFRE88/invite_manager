@@ -1,4 +1,10 @@
-<%= notice %>
+</br>
+<% if notice.present? %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= notice %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
 <div style="width: 80%;" class="mx-auto">
   <% content_for :title, "Companies" %>
   <h1>Companies</h1>
