@@ -4,10 +4,8 @@
 
   <%= link_to "Back", administrators_path, class: "btn btn-secondary mb-3" %>
 
-  <!-- Botão para exibir/ocultar filtro -->
   <button id="toggle-filter" class="btn btn-info mb-3">Show Filters</button>
 
-  <!-- Formulário de Filtro -->
   <div id="filter-form" style="display: none;">
     <%= form_with(url: administrator_invites_path(@administrator), method: :get, local: true) do |form| %>
       <div class="mb-3">

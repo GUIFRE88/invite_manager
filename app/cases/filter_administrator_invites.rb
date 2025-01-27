@@ -2,13 +2,10 @@ class FilterAdministratorInvites
   def initialize(administrator, params)
     @administrator = administrator
     @params = params
+    @repository = AdministratorRepository.new(@administrator)
   end
 
   def call
-    invites = AdministratorCompanyInvite
-                .includes(:invite, :company)
-                .where(administrator_id: @administrator.id)
-
-    FilterInvites.new(invites, @params).call
+    @repository.filter_administrador_invites(@params)
   end
 end

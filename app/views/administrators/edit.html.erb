@@ -9,7 +9,7 @@
   </br>
 
   <%= form_with(model: @administrator, local: true) do |form| %>
-    <% if @administrator.errors.any? %>
+    <% if @administrator&.errors&.any? %>
       <div id="error_explanation" class="alert alert-danger">
         <h2><%= pluralize(@administrator.errors.count, "error") %> proibiu este administrador de ser salvo:</h2>
         <ul>

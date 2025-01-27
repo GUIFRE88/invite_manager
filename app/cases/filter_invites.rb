@@ -2,6 +2,7 @@ class FilterInvites
   def initialize(invites_relation, params)
     @invites_relation = invites_relation
     @params = params
+    @repository = InviteRepository.new()
   end
 
   def call

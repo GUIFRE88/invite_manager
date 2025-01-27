@@ -2,13 +2,10 @@ class UpdateAdministrator
   def initialize(administrator, params)
     @administrator = administrator
     @params = params
+    @repository = AdministratorRepository.new(@administrator)
   end
 
   def call
-    if @administrator.update(@params)
-      return { success: true, administrator: @administrator }
-    else
-      return { success: false, errors: @administrator.errors }
-    end
+    @repository.update!(@params)
   end
 end

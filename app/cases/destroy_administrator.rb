@@ -1,10 +1,11 @@
 class DestroyAdministrator
   def initialize(administrator)
     @administrator = administrator
+    @repository = AdministratorRepository.new(@administrator)
   end
 
   def call
-    if @administrator.destroy
+    if @repository.destroy!
       return { success: true }
     else
       return { success: false, errors: @administrator.errors }

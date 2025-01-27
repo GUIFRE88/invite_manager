@@ -22,7 +22,7 @@ class CompaniesController < ApplicationController
     @company = CreateCompany.new(company_params).call
 
     respond_to do |format|
-      if @company
+      if @company.persisted?
         format.html { redirect_to @company, notice: "Company was successfully created." }
         format.json { render :show, status: :created, location: @company }
       else
@@ -36,7 +36,7 @@ class CompaniesController < ApplicationController
     @company = UpdateCompany.new(@company, company_params).call
 
     respond_to do |format|
-      if @company
+      if @company.persisted?
         format.html { redirect_to @company, notice: "Company was successfully updated." }
         format.json { render :show, status: :ok, location: @company }
       else

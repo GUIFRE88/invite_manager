@@ -1,15 +1,10 @@
 class CreateCompany
   def initialize(company_params)
     @company_params = company_params
+    @repository = CompanyRepository.new
   end
 
   def call
-    company = Company.new(@company_params)
-
-    if company.save
-      company
-    else
-      nil
-    end
+    @repository.create!(@company_params)
   end
 end

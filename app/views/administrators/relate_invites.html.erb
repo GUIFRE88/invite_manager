@@ -1,4 +1,11 @@
 <div style="width: 40%;" class="mx-auto">
+
+  <h1>Relate Invites</h1>
+
+  </br>
+  <%= link_to "Back", administrators_path, class: 'btn btn-secondary' %>
+  </br>
+  
   <%= form_with url: associate_invites_administrator_path(@administrator), method: :post do |f| %>
     <table class="table table-bordered mt-3">
       <thead>
@@ -27,6 +34,5 @@
     </table>
 
     <%= f.submit "Save", class: "btn btn-primary" %>
-    <%= link_to "Back", administrators_path, class: 'btn btn-secondary' %>
   <% end %>
 </div>

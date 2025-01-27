@@ -1,9 +1,10 @@
 class DestroyCompany
   def initialize(company)
     @company = company
+    @repository = CompanyRepository.new(@company)
   end
 
   def call
-    @company.destroy!
+    @repository.destroy!
   end
 end

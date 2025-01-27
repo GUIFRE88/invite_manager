@@ -1,9 +1,10 @@
 class CreateInvite
   def initialize(params)
     @params = params
+    @repository = InviteRepository.new()
   end
 
   def call
-    Invite.new(@params)
+    @repository.create(@params)
   end
 end

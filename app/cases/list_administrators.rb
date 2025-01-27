@@ -1,5 +1,9 @@
 class ListAdministrators
+  def initialize()
+    @repository = AdministratorRepository.new()
+  end
+
   def call
-    Administrator.all
+    @repository.list
   end
 end

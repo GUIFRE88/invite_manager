@@ -1,9 +1,10 @@
 class ListInvites
   def initialize(params = {})
     @params = params
+    @repository = InviteRepository.new()
   end
 
   def call
-    Invite.all
+    @repository.list_invites
   end
 end
