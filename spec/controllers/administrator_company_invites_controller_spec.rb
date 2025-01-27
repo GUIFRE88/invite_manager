@@ -6,12 +6,12 @@ RSpec.describe AdministratorCompanyInvitesController, type: :controller do
   let!(:company_invite) { create(:company_invite, invite: invite, company: create(:company)) }
 
   describe 'DELETE #destroy' do
-    context 'quando a exclusão do convite é bem-sucedida' do
+    context 'when invitation deletion is successful' do
       before do
         allow(DeleteInvite).to receive(:new).with(company_invite.id.to_s).and_return(double(call: { success: true, admin_id: administrator.id }))
       end
 
-      it 'redireciona para a página de convites do administrador com uma mensagem de sucesso' do
+      it 'redirects to the admin invite page with a success message' do
         delete :destroy, params: { id: company_invite.id.to_s, administrator_id: administrator.id }
 
         expect(response).to redirect_to(administrator_invites_path(administrator.id))
@@ -19,12 +19,12 @@ RSpec.describe AdministratorCompanyInvitesController, type: :controller do
       end
     end
 
-    context 'quando ocorre um erro na exclusão do convite' do
+    context 'when an error occurs while deleting the invitation' do
       before do
         allow(DeleteInvite).to receive(:new).with(company_invite.id.to_s).and_return(double(call: { success: false, error: "Erro ao excluir o convite" }))
       end
 
-      it 'redireciona para a página de convites do administrador com uma mensagem de erro' do
+      it 'redirects to the admin invite page with an error message' do
         delete :destroy, params: { id: company_invite.id.to_s, administrator_id: administrator.id }
 
         expect(response).to redirect_to(administrator_invites_path(administrator.id))

@@ -4,10 +4,10 @@ RSpec.describe UpdateCompany, type: :service do
   describe '#call' do
     let!(:company) { create(:company, name: "Old Company Name") }
 
-    context 'quando a atualização é bem-sucedida' do
+    context 'when the update is successful' do
       let(:new_params) { { name: "New Company Name" } }
 
-      it 'atualiza a empresa com os novos parâmetros' do
+      it 'updates the company with the new parameters' do
         service = UpdateCompany.new(company, new_params)
 
         updated_company = service.call
@@ -17,10 +17,10 @@ RSpec.describe UpdateCompany, type: :service do
       end
     end
 
-    context 'quando a atualização falha' do
+    context 'when the update fails' do
       let(:invalid_params) { { name: nil } }
 
-      it 'não atualiza a empresa e retorna nil' do
+      it 'does not update the company and returns nil' do
         service = UpdateCompany.new(company, invalid_params)
 
         result = service.call

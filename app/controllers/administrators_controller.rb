@@ -14,7 +14,7 @@ class AdministratorsController < ApplicationController
     result = UpdateAdministrator.new(@administrator, administrator_params).call
 
     if result[:success]
-      redirect_to administrators_path, notice: 'Administrador atualizado com sucesso.'
+      redirect_to administrators_path, notice: 'Administrator updated successfully.'
     else
       @administrator = result[:administrator]
       render :edit
@@ -25,9 +25,9 @@ class AdministratorsController < ApplicationController
     result = DestroyAdministrator.new(@administrator).call
 
     if result[:success]
-      redirect_to new_administrator_session_path, notice: 'Administrador excluído com sucesso.'
+      redirect_to new_administrator_session_path, notice: 'Administrator successfully deleted.'
     else
-      redirect_to administrators_path, alert: 'Erro ao excluir o administrador.'
+      redirect_to administrators_path, alert: 'Error deleting administrator.'
     end
   end
 

@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe DestroyInvite, type: :service do
   describe '#call' do
-    context 'quando o invite é destruído com sucesso' do
+    context 'when the invite is successfully destroyed' do
       let!(:invite) { create(:invite) }
 
-      it 'retorna sucesso e o invite é destruído' do
+      it 'returns success and the invite is destroyed' do
         service = DestroyInvite.new(invite)
 
         expect {
@@ -16,14 +16,14 @@ RSpec.describe DestroyInvite, type: :service do
       end
     end
 
-    context 'quando a destruição do invite falha' do
+    context 'when invite destruction fails' do
       let!(:invite) { create(:invite) }
 
       before do
         allow(invite).to receive(:destroy!).and_raise(ActiveRecord::RecordNotDestroyed, "Destruction failed")
       end
 
-      it 'retorna erro quando falha' do
+      it 'returns error when failed' do
         service = DestroyInvite.new(invite)
 
         expect {

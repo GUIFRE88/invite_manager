@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe ListAdministrators, type: :service do
   describe '#call' do
-    context 'quando há administradores cadastrados' do
+    context 'when there are registered administrators' do
       let!(:administrator1) { create(:administrator, email: "admin1@example.com") }
       let!(:administrator2) { create(:administrator, email: "admin2@example.com") }
 
-      it 'retorna todos os administradores' do
+      it 'returns all administrators' do
         service = ListAdministrators.new
 
         administrators = service.call
@@ -17,8 +17,8 @@ RSpec.describe ListAdministrators, type: :service do
       end
     end
 
-    context 'quando não há administradores cadastrados' do
-      it 'retorna uma lista vazia' do
+    context 'returns all administrators' do
+      it 'returns an empty list' do
         service = ListAdministrators.new
 
         administrators = service.call

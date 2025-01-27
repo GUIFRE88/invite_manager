@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe CreateInvite, type: :service do
   describe '#call' do
-    context 'quando os parâmetros são válidos' do
+    context 'when the parameters are valid' do
       let(:valid_params) { { name: "Special Invitation", date_completion: 1.year.from_now } }
 
-      it 'cria um novo convite com sucesso' do
+      it 'successfully create a new invitation' do
         service = CreateInvite.new(valid_params)
 
         invite = service.call
@@ -16,10 +16,10 @@ RSpec.describe CreateInvite, type: :service do
       end
     end
 
-    context 'quando os parâmetros são inválidos' do
+    context 'when parameters are invalid' do
       let(:invalid_params) { { name: nil, date_completion: nil } }
 
-      it 'não cria um convite' do
+      it 'does not create an invitation' do
         service = CreateInvite.new(invalid_params)
 
         invite = service.call

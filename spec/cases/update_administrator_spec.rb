@@ -4,10 +4,10 @@ RSpec.describe UpdateAdministrator, type: :service do
   describe '#call' do
     let!(:administrator) { create(:administrator, email: "old_email@example.com") }
 
-    context 'quando a atualização é bem-sucedida' do
+    context 'when the update is successful' do
       let(:valid_params) { { email: "new_email@example.com" } }
 
-      it 'atualiza o administrador com os novos parâmetros' do
+      it 'updates the administrator with the new parameters' do
         service = UpdateAdministrator.new(administrator, valid_params)
 
         result = service.call

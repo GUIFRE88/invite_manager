@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe DestroyCompany, type: :service do
   describe '#call' do
-    context 'quando a empresa é destruída com sucesso' do
+    context 'when the company is successfully destroyed' do
       let!(:company) { create(:company) }
 
-      it 'retorna sucesso e a empresa é destruída' do
+      it 'returns success and the company is destroyed' do
         service = DestroyCompany.new(company)
 
         expect {
@@ -16,14 +16,14 @@ RSpec.describe DestroyCompany, type: :service do
       end
     end
 
-    context 'quando a destruição da empresa falha' do
+    context 'when company destruction fails' do
       let!(:company) { create(:company) }
 
       before do
         allow(company).to receive(:destroy!).and_raise(ActiveRecord::RecordNotDestroyed, "Destruction failed")
       end
 
-      it 'retorna erro quando falha' do
+      it 'returns error when failed' do
         service = DestroyCompany.new(company)
 
         expect {

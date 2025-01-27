@@ -7,8 +7,8 @@ RSpec.describe AssociateInvites, type: :service do
   let!(:invite2) { create(:invite) }
 
   describe '#call' do
-    context 'quando os parâmetros de convites são válidos' do
-      it 'associa os convites ao administrador e à empresa' do
+    context 'when invitation parameters are valid' do
+      it 'associates invitations with the administrator and the company' do
         invite_params = {
           invite1.id.to_s => {
             "selected" => "true",
@@ -32,8 +32,8 @@ RSpec.describe AssociateInvites, type: :service do
       end
     end
 
-    context 'quando os parâmetros de convite estão vazios' do
-      it 'não associa nenhum convite ao administrador' do
+    context 'when invitation parameters are empty' do
+      it 'does not associate any invitation with the administrator' do
         invite_params = {}
 
         service = AssociateInvites.new(administrator, invite_params)
@@ -43,8 +43,8 @@ RSpec.describe AssociateInvites, type: :service do
       end
     end
 
-    context 'quando o parâmetro selected é "false"' do
-      it 'não associa o convite ao administrador' do
+    context 'when the selected parameter is "false"' do
+      it 'does not associate the invitation with the administrator' do
         invite_params = {
           invite1.id.to_s => {
             "selected" => "false",

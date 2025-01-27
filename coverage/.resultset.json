@@ -230,6 +230,19 @@
           null
         ]
       },
+      "/app/app/cases/company/list_companies.rb": {
+        "lines": [
+          1,
+          1,
+          3,
+          null,
+          null,
+          1,
+          3,
+          null,
+          null
+        ]
+      },
       "/app/app/cases/invite/list_invites.rb": {
         "lines": [
           1,
@@ -630,11 +643,11 @@
         "lines": [
           1,
           1,
-          17,
+          18,
           null,
           null,
           1,
-          1,
+          2,
           null,
           null,
           1,
@@ -745,21 +758,8 @@
           null,
           null
         ]
-      },
-      "/app/app/cases/company/list_companies.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
       }
     },
-    "timestamp": 1737939442
+    "timestamp": 1737941033
   }
 }

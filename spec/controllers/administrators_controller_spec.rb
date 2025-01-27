@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AdministratorsController, type: :controller do
-  include Devise::Test::ControllerHelpers # Incluindo o helper do Devise
+  include Devise::Test::ControllerHelpers
 
   let!(:administrator) { create(:administrator) }
 
@@ -10,7 +10,7 @@ RSpec.describe AdministratorsController, type: :controller do
   end
 
   describe 'GET #index' do
-    it 'exibe a lista de administradores' do
+    it 'display the list of administrators' do
       allow(ListAdministrators).to receive(:new).and_return(double(call: [administrator]))
 
       get :index
@@ -21,7 +21,7 @@ RSpec.describe AdministratorsController, type: :controller do
   end
 
   describe 'GET #edit' do
-    it 'exibe a página de edição do administrador' do
+    it 'displays the administrator edit page' do
       get :edit, params: { id: administrator.id }
 
       expect(response).to be_successful
@@ -30,19 +30,19 @@ RSpec.describe AdministratorsController, type: :controller do
   end
 
   describe 'PATCH #update' do
-    context 'quando a atualização é bem-sucedida' do
-      it 'atualiza o administrador e redireciona para a lista de administradores' do
+    context 'when the update is successful' do
+      it 'updates the administrator and redirects to the administrator list' do
         allow(UpdateAdministrator).to receive(:new).and_return(double(call: { success: true, administrator: administrator }))
 
         patch :update, params: { id: administrator.id, administrator: { email: 'new_email@example.com' } }
 
         expect(response).to redirect_to(administrators_path)
-        expect(flash[:notice]).to eq('Administrador atualizado com sucesso.')
+        expect(flash[:notice]).to eq('Administrator updated successfully.')
       end
     end
 
-    context 'quando a atualização falha' do
-      it 'renderiza a página de edição com erros' do
+    context 'when the update fails' do
+      it 'renders edit page with errors' do
         allow(UpdateAdministrator).to receive(:new).and_return(double(call: { success: false, administrator: administrator }))
 
         patch :update, params: { id: administrator.id, administrator: { email: 'invalid_email' } }
@@ -54,31 +54,31 @@ RSpec.describe AdministratorsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    context 'quando a exclusão é bem-sucedida' do
-      it 'exclui o administrador e redireciona para a tela de login' do
+    context 'when deletion is successful' do
+      it 'deletes the administrator and redirects to the login screen' do
         allow(DestroyAdministrator).to receive(:new).and_return(double(call: { success: true }))
 
         delete :destroy, params: { id: administrator.id }
 
         expect(response).to redirect_to(new_administrator_session_path)
-        expect(flash[:notice]).to eq('Administrador excluído com sucesso.')
+        expect(flash[:notice]).to eq('Administrator successfully deleted.')
       end
     end
 
-    context 'quando a exclusão falha' do
-      it 'exibe uma mensagem de erro e redireciona para a lista de administradores' do
+    context 'when deletion fails' do
+      it 'displays an error message and redirects to the administrators list' do
         allow(DestroyAdministrator).to receive(:new).and_return(double(call: { success: false }))
 
         delete :destroy, params: { id: administrator.id }
 
         expect(response).to redirect_to(administrators_path)
-        expect(flash[:alert]).to eq('Erro ao excluir o administrador.')
+        expect(flash[:alert]).to eq('Error deleting administrator.')
       end
     end
   end
 
   describe 'GET #relate_invites' do
-    it 'exibe os convites relacionados ao administrador' do
+    it 'displays invitations related to the administrator' do
       allow(RelateInvites).to receive(:new).and_return(double(call: []))
 
       get :relate_invites, params: { id: administrator.id }
@@ -89,7 +89,7 @@ RSpec.describe AdministratorsController, type: :controller do
   end
 
   describe 'POST #associate_invites' do
-    it 'associa os convites ao administrador e redireciona' do
+    it 'associates invitations with the administrator and redirects' do
       invite_params = { invite1: 'value1', invite2: 'value2' }
 
       allow(AssociateInvites).to receive(:new).and_return(double(call: nil))
@@ -102,7 +102,7 @@ RSpec.describe AdministratorsController, type: :controller do
   end
 
   describe 'GET #invites' do
-    it 'filtra e exibe os convites do administrador' do
+    it 'filters and displays admin invitations' do
       allow(FilterAdministratorInvites).to receive(:new).and_return(double(call: []))
       allow(FilterInvites).to receive(:new).and_return(double(call: []))
 

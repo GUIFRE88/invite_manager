@@ -11,8 +11,8 @@ RSpec.describe FilterInvites, type: :service do
   let!(:administrator_company_invite2) { create(:administrator_company_invite, administrator: administrator, company: company2, invite: invite2) }
 
   describe '#call' do
-    context 'quando o filtro de nome do convite é aplicado' do
-      it 'retorna os convites que correspondem ao nome do convite' do
+    context 'when the invitation name filter is applied' do
+      it 'returns invitations that match the invitation name' do
         params = { invite_name: "Invite 1" }
 
         service = FilterInvites.new(AdministratorCompanyInvite.all, params)
@@ -24,8 +24,8 @@ RSpec.describe FilterInvites, type: :service do
       end
     end
 
-    context 'quando o filtro de nome da empresa é aplicado' do
-      it 'retorna os convites que correspondem ao nome da empresa' do
+    context 'when company name filter is applied' do
+      it 'returns invitations that match the company name' do
         params = { company_name: "Company A" }
 
         service = FilterInvites.new(AdministratorCompanyInvite.all, params)
@@ -37,8 +37,8 @@ RSpec.describe FilterInvites, type: :service do
       end
     end
 
-    context 'quando os filtros de data de início e fim são aplicados' do
-      it 'retorna os convites dentro do intervalo de datas' do
+    context 'when start and end date filters are applied' do
+      it 'returns invitations within the date range' do
         params = { start_date: "2025-02-01", end_date: "2025-02-28" }
 
         service = FilterInvites.new(AdministratorCompanyInvite.all, params)
@@ -50,8 +50,8 @@ RSpec.describe FilterInvites, type: :service do
       end
     end
 
-    context 'quando apenas o filtro de data de início é aplicado' do
-      it 'retorna os convites com data de conclusão igual ou superior à data de início' do
+    context 'when only the start date filter is applied' do
+      it 'returns invitations with an end date equal to or greater than the start date' do
         params = { start_date: "2025-03-01" }
 
         service = FilterInvites.new(AdministratorCompanyInvite.all, params)
@@ -63,8 +63,8 @@ RSpec.describe FilterInvites, type: :service do
       end
     end
 
-    context 'quando apenas o filtro de data de término é aplicado' do
-      it 'retorna os convites com data de conclusão igual ou inferior à data de término' do
+    context 'when only the end date filter is applied' do
+      it 'returns invitations with a completion date equal to or less than the end date' do
         params = { end_date: "2025-02-15" }
 
         service = FilterInvites.new(AdministratorCompanyInvite.all, params)

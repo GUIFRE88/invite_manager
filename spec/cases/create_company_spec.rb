@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe CreateCompany, type: :service do
   describe '#call' do
-    context 'quando os parâmetros da empresa são válidos' do
+    context 'when the company parameters are valid' do
       let(:valid_params) { { name: "New Company" } }
 
-      it 'cria a empresa com sucesso' do
+      it 'successfully creates the company' do
         service = CreateCompany.new(valid_params)
 
         company = service.call
@@ -16,10 +16,10 @@ RSpec.describe CreateCompany, type: :service do
       end
     end
 
-    context 'quando os parâmetros da empresa são inválidos' do
+    context 'when company parameters are invalid' do
       let(:invalid_params) { { name: nil } }
 
-      it 'não cria a empresa' do
+      it 'does not create the company' do
         service = CreateCompany.new(invalid_params)
 
         company = service.call

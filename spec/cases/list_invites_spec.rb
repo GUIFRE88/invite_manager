@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe ListInvites, type: :service do
   describe '#call' do
-    context 'quando há convites cadastrados' do
+    context 'when there are registered invitations' do
       let!(:invite1) { create(:invite, name: "Invite 1", date_completion: "2025-02-01") }
       let!(:invite2) { create(:invite, name: "Invite 2", date_completion: "2025-02-02") }
 
-      it 'retorna todos os convites' do
+      it 'returns all invitations' do
         service = ListInvites.new
 
         invites = service.call
@@ -17,8 +17,8 @@ RSpec.describe ListInvites, type: :service do
       end
     end
 
-    context 'quando não há convites cadastrados' do
-      it 'retorna uma lista vazia' do
+    context 'when there are no registered invitations' do
+      it 'returns an empty list' do
         service = ListInvites.new
 
         invites = service.call

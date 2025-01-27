@@ -10,7 +10,7 @@ RSpec.describe InvitesController, type: :controller do
   end
 
   describe 'GET #index' do
-    it 'exibe a lista de convites' do
+    it 'displays the list of invitations' do
       get :index
       expect(response).to be_successful
       expect(assigns(:invites)).to include(invite)
@@ -18,7 +18,7 @@ RSpec.describe InvitesController, type: :controller do
   end
 
   describe 'GET #show' do
-    it 'exibe o convite selecionado' do
+    it 'displays the selected invitation' do
       get :show, params: { id: invite.id }
       expect(response).to be_successful
       expect(assigns(:invite)).to eq(invite)
@@ -26,7 +26,7 @@ RSpec.describe InvitesController, type: :controller do
   end
 
   describe 'GET #new' do
-    it 'exibe o formulário para criar um novo convite' do
+    it 'displays the form to create a new invitation' do
       get :new
       expect(response).to be_successful
       expect(assigns(:invite)).to be_a_new(Invite)
@@ -34,7 +34,7 @@ RSpec.describe InvitesController, type: :controller do
   end
 
   describe 'GET #edit' do
-    it 'exibe o formulário para editar o convite' do
+    it 'displays the form to edit the invitation' do
       get :edit, params: { id: invite.id }
       expect(response).to be_successful
       expect(assigns(:invite)).to eq(invite)
@@ -42,20 +42,20 @@ RSpec.describe InvitesController, type: :controller do
   end
 
   describe 'POST #create' do
-    context 'com dados válidos' do
+    context 'with valid data' do
       let(:valid_params) { { invite: { name: 'New Invite', date_completion: '2025-12-31' } } }
 
-      it 'cria um novo convite e redireciona para a página do convite' do
+      it 'creates a new invitation and redirects to the invitation page' do
         post :create, params: valid_params
         expect(response).to redirect_to(invite_path(assigns(:invite)))
         expect(flash[:notice]).to eq('Invite was successfully created.')
       end
     end
 
-    context 'com dados inválidos' do
+    context 'with invalid data' do
       let(:invalid_params) { { invite: { name: '', date_completion: '2025-12-31' } } }
 
-      it 'não cria o convite e renderiza a página de criação' do
+      it 'does not create the invitation and render the creation page' do
         post :create, params: invalid_params
         expect(response).to render_template(:new)
         expect(assigns(:invite).errors).not_to be_empty
@@ -64,20 +64,20 @@ RSpec.describe InvitesController, type: :controller do
   end
 
   describe 'PUT #update' do
-    context 'com dados válidos' do
+    context 'with valid data' do
       let(:valid_params) { { invite: { name: 'Updated Invite', date_completion: '2025-12-31' } } }
 
-      it 'atualiza o convite e redireciona para a página do convite' do
+      it 'updates the invitation and redirects to the invitation page' do
         put :update, params: { id: invite.id, invite: valid_params[:invite] }
         expect(response).to redirect_to(invite_path(assigns(:invite)))
         expect(flash[:notice]).to eq('Invite was successfully updated.')
       end
     end
 
-    context 'com dados inválidos' do
+    context 'with invalid data' do
       let(:invalid_params) { { invite: { name: '', date_completion: '' } } }
 
-      it 'não atualiza o convite e renderiza a página de edição' do
+      it 'does not update the invitation and render the edit page' do
         put :update, params: { id: invite.id, invite: invalid_params[:invite] }
         expect(response).to render_template(:edit)
         expect(assigns(:invite).errors).not_to be_empty
@@ -86,7 +86,7 @@ RSpec.describe InvitesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    it 'deleta o convite e redireciona para a lista de convites' do
+    it 'deletes the invitation and redirects to the invitation list' do
       delete :destroy, params: { id: invite.id }
       expect(response).to redirect_to(invites_path)
       expect(flash[:notice]).to eq('Invite was successfully destroyed.')

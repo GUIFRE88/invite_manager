@@ -12,12 +12,12 @@ RSpec.describe RelateInvites, type: :service do
       create(:company_invite, company: company2, invite: invite2)
     end
 
-    context 'quando existem convites já associados ao administrador' do
+    context 'when there are invitations already associated with the administrator' do
       before do
         create(:administrator_company_invite, administrator: administrator, invite: invite1)
       end
 
-      it 'retorna apenas convites não associados ao administrador' do
+      it 'returns only invites not associated with the admin' do
         service = RelateInvites.new(administrator)
         result = service.call
         invite_ids = result.map(&:invite_id)
@@ -26,8 +26,8 @@ RSpec.describe RelateInvites, type: :service do
       end
     end
 
-    context 'quando não existem convites associados ao administrador' do
-      it 'retorna todos os convites de empresas que não foram associados ao administrador' do
+    context 'when there are no invitations associated with the administrator' do
+      it 'returns all company invites that have not been associated with the admin' do
         service = RelateInvites.new(administrator)
         result = service.call
 
@@ -37,8 +37,8 @@ RSpec.describe RelateInvites, type: :service do
       end
     end
 
-    context 'quando não existem convites relacionados à empresa' do
-      it 'retorna apenas os convites não associados ao administrador' do
+    context 'when there are no company-related invitations' do
+      it 'returns only invitations not associated with the administrator' do
         AdministratorCompanyInvite.destroy_all
         
         service = RelateInvites.new(administrator)

@@ -1,18 +1,17 @@
-# spec/cases/list_companies_spec.rb
 require 'rails_helper'
 
 RSpec.describe ListCompanies, type: :service do
   describe '#call' do
-    let!(:companies) { create_list(:company, 3) } # Cria 3 empresas usando FactoryBot
+    let!(:companies) { create_list(:company, 3) }
     let(:service) { ListCompanies.new }
 
-    it 'retorna todas as empresas' do
+    it 'returns all companies' do
       result = service.call
 
       expect(result).to match_array(companies)
     end
 
-    it 'chama o método index do repositório' do
+    it 'calls the index method of the repository' do
       repository = double('CompanyRepository')
       allow(CompanyRepository).to receive(:new).and_return(repository)
       allow(repository).to receive(:index).and_return(companies)

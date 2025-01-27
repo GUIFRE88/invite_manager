@@ -12,8 +12,8 @@ RSpec.describe AssociateInvitesForCompany, type: :service do
   end
 
   describe '#call' do
-    context 'quando um convite é removido' do
-      it 'remove o convite da empresa' do
+    context 'when an invitation is removed' do
+      it 'remove company invitation' do
         invite_ids = [invite1.id.to_s]
 
         service = AssociateInvitesForCompany.new(company, invite_ids)
@@ -24,9 +24,9 @@ RSpec.describe AssociateInvitesForCompany, type: :service do
       end
     end
 
-    context 'quando novos convites são adicionados' do
-      it 'adiciona os convites à empresa' do
-        invite_ids = [invite1.id.to_s, invite2.id.to_s, invite3.id.to_s]  # Adicionando o invite3
+    context 'when new invitations are added' do
+      it 'add invitations to the company' do
+        invite_ids = [invite1.id.to_s, invite2.id.to_s, invite3.id.to_s]
 
         service = AssociateInvitesForCompany.new(company, invite_ids)
         service.call
@@ -35,8 +35,8 @@ RSpec.describe AssociateInvitesForCompany, type: :service do
       end
     end
 
-    context 'quando o mesmo convite já está associado' do
-      it 'não adiciona convites duplicados' do
+    context 'when the same invitation is already associated' do
+      it 'does not add duplicate invitations' do
         invite_ids = [invite1.id.to_s, invite2.id.to_s]
 
         service = AssociateInvitesForCompany.new(company, invite_ids)

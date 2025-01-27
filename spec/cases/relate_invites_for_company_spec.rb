@@ -12,8 +12,8 @@ RSpec.describe RelateInvitesForCompany, type: :service do
       company.invites << invite2
     end
 
-    context 'quando existem convites relacionados à empresa' do
-      it 'retorna os convites relacionados e não relacionados à empresa' do
+    context 'when there are company-related invitations' do
+      it 'returns both company-related and non-company-related invitations' do
         service = RelateInvitesForCompany.new(company)
         result = service.call
 
@@ -22,8 +22,8 @@ RSpec.describe RelateInvitesForCompany, type: :service do
       end
     end
 
-    context 'quando existem apenas convites não relacionados' do
-      it 'retorna apenas os convites não relacionados' do
+    context 'when there are only unrelated invitations' do
+      it 'returns only unrelated invitations' do
         company.invites.destroy_all
 
         service = RelateInvitesForCompany.new(company)
@@ -33,8 +33,8 @@ RSpec.describe RelateInvitesForCompany, type: :service do
       end
     end
 
-    context 'quando há convites relacionados e novos convites não relacionados' do
-      it 'retorna todos os convites, garantindo que sejam únicos' do
+    context 'when there are related invitations and new unrelated invitations' do
+      it 'returns all invitations, ensuring they are unique' do
         service = RelateInvitesForCompany.new(company)
         result = service.call
 
