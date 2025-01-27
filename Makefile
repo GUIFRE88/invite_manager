@@ -22,11 +22,9 @@ db_migrate:
 	docker exec -it $(RAILS_CONTAINER) bash -c "rails db:migrate"
 
 setup:
-	docker compose up --build
 	docker exec -it $(RAILS_CONTAINER) bash -c "rails db:create && rails db:migrate"
 
 setup_test:
-	docker compose up --build
 	docker exec -it $(RAILS_CONTAINER) bash -c "RAILS_ENV=test rails db:create && rails db:migrate"
 
 build:
