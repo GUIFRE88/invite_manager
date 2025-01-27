@@ -30,7 +30,7 @@ end
 
 group :test do
   gem 'factory_bot_rails'
-  gem 'shoulda-matchers', '~> 5.0'
+  gem 'shoulda-matchers', '~> 6.4'
   gem 'database_cleaner-active_record'
   gem 'simplecov', require: false
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.5'
