@@ -10,20 +10,12 @@
 
     <%= yield :head %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <!-- Adicionando o Bootstrap -->
     <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", integrity: "sha384-9aIt2nRpC7a3vPpto9b8dZX2t7NSB95E4aa+dqzQFs7Ujpa3JkCjm3a8RbHDgnkx", crossorigin: "anonymous" %>
-
-    <!-- Outros arquivos CSS -->
     <%= stylesheet_link_tag "application", media: "all" %>
-
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= javascript_include_tag 'application'%>
     <script>
       Turbo.session.drive = false;

@@ -1,8 +1,8 @@
 <%= form_with(model: @invite, local: true) do |form| %>
   <% if @invite.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@invite.errors.count, "error") %> prohibited this invite from being saved:</h2>
-      <ul>
+    <div class="alert alert-danger" role="alert">
+      <h4 class="alert-heading"><%= pluralize(@invite.errors.count, "error") %> prevented this invite from being saved:</h4>
+      <ul class="mb-0">
         <% @invite.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
