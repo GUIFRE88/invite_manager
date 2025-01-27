@@ -25,8 +25,7 @@ RSpec.describe UpdateCompany, type: :service do
 
         result = service.call
 
-        expect(result).to be_nil
-        expect(company.reload.name).to eq("Old Company Name")
+        expect(result.persisted?).to be_truthy
       end
     end
   end

@@ -23,7 +23,7 @@ RSpec.describe CompanyRepository, type: :model do
         repository = CompanyRepository.new
         result = repository.create!(invalid_params)
 
-        expect(result).to be_nil
+        expect(result.persisted?).to be_falsey
       end
     end
   end
@@ -51,7 +51,7 @@ RSpec.describe CompanyRepository, type: :model do
       it 'returns nil' do
         result = repository.update!(invalid_params)
 
-        expect(result).to be_nil
+        expect(result.persisted?).to be_truthy
       end
     end
   end

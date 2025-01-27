@@ -75,7 +75,10 @@ class InviteRepository
     end
 
     invite_ids.each do |invite_id|
-      invite = Invite.find(invite_id)
+      invite = Invite.find_by_id(invite_id)
+
+      return company unless invite.present?
+
       company.invites << invite unless company.invites.exists?(invite.id)
     end
 

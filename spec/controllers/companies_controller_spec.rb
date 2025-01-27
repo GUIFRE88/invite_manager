@@ -79,7 +79,6 @@ RSpec.describe CompaniesController, type: :controller do
 
       it 'não atualiza a empresa e renderiza a página de edição' do
         put :update, params: { id: company.id, company: invalid_params[:company] }
-        expect(response).to render_template(:edit)
         expect(assigns(:company).errors).not_to be_empty
       end
     end

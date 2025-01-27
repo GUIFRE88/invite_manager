@@ -24,7 +24,7 @@ RSpec.describe CreateCompany, type: :service do
 
         company = service.call
 
-        expect(company).to be_nil
+        expect(company.persisted?).to be_falsey
       end
     end
   end

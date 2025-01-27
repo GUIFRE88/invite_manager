@@ -5,13 +5,8 @@ class CompanyRepository
 
   def create!(company_params)
     company = Company.new(company_params)
-
-    if company.save
-      company
-    else
-      nil
-    end
-
+    company.save
+    company
   end
 
   def destroy!()
@@ -19,11 +14,8 @@ class CompanyRepository
   end
 
   def update!(company_params)
-    if @company.update(company_params)
-      @company
-    else
-      nil
-    end
+    @company.update(company_params)
+    @company
   end
 
 end
