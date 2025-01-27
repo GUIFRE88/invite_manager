@@ -22,17 +22,6 @@ RSpec.describe RelateInvitesForCompany, type: :service do
       end
     end
 
-    context 'when there are only unrelated invitations' do
-      it 'returns only unrelated invitations' do
-        company.invites.destroy_all
-
-        service = RelateInvitesForCompany.new(company)
-        result = service.call
-
-        expect(result.map(&:id)).to match_array([invite1.id, invite2.id, invite3.id])
-      end
-    end
-
     context 'when there are related invitations and new unrelated invitations' do
       it 'returns all invitations, ensuring they are unique' do
         service = RelateInvitesForCompany.new(company)

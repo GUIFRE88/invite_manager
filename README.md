@@ -188,6 +188,22 @@ Possuíndo um total de 99,41% de cobertura total de testes.
 
 <br>
 
+#  💻 Pontos relevantes
+
+
+* Separei as funcionalidades do controller em Use-Cases, cada um com a sua função.
+* O acesso ao banco está sendo feito dentro do Repository.
+* Criei indices nas tabelas, quando necessário, para melhorar a performance da busca de valores.  
+* Utilizei a gem Devise para login e controlle de acesso.
+* Utilizei Postgresql como banco da aplicação e docker para que o ambiente de Dev seja facilmente iniciado.
+* Utilizei o Makefile com os principais comandos que podem ser utilizados.
+* Utilizei o Ruby na versão 3.2.2 e o Rails ~> 7.
+
+
+
+<br>
+
+
 #  💻 Melhorias no projeto
 
 Todo projeto oferece desafios e melhorias, creio que as melhorias seriam:

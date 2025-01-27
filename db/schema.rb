@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_26_123127) do
+ActiveRecord::Schema[7.1].define(version: 2025_01_27_232502) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_26_123127) do
     t.bigint "invite_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["administrator_id", "company_id", "invite_id"], name: "index_admin_company_invites_on_admin_company_invite"
     t.index ["administrator_id"], name: "index_administrator_company_invites_on_administrator_id"
     t.index ["company_id"], name: "index_administrator_company_invites_on_company_id"
     t.index ["invite_id"], name: "index_administrator_company_invites_on_invite_id"
@@ -48,6 +49,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_26_123127) do
     t.bigint "invite_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["company_id", "invite_id"], name: "index_company_invites_on_company_invite"
     t.index ["company_id"], name: "index_company_invites_on_company_id"
     t.index ["invite_id"], name: "index_company_invites_on_invite_id"
   end
